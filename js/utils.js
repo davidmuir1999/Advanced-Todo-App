@@ -62,10 +62,8 @@ export function initializeDragAndDrop(){
         animation: 150,
         ghostClass: 'sortable-ghost',
         handle: '.fa-grip-lines',
-        forceFallback: true, 
         fallbackTolerance: 3,
-        swapThreshold: 0.65, 
-        touchStartThreshold: 0,
+        swapThreshold: 0.65,
     });
 }
 
