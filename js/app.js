@@ -1,4 +1,4 @@
-import { addTodo, toggleTodo, editTodoItem } from './utils.js';
+import { addTodo, toggleTodo, editTodoItem, initializeDragAndDrop, taskComplete} from './utils.js';
 
 const addButton = document.getElementById('add-btn');
 const todoInput = document.getElementById('new-todo');
@@ -18,6 +18,7 @@ todoList.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
         const todoItem = e.target.parentElement;
         toggleTodo(todoItem);
+        taskComplete(todoItem);
     }
 });
 
@@ -32,5 +33,10 @@ function addTodoItem() {
     if (todoText.trim() !== '') {
         addTodo(todoText);
         todoInput.value = '';
+        initializeDragAndDrop();
+
     }
 }
+
+initializeDragAndDrop();
+taskComplete(todoItem);

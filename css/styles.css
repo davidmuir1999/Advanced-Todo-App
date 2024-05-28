@@ -1,35 +1,117 @@
-html, body {
-    height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
+
 body {
+    background-color: #f0f2f5;
+    background-image:  linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777);
+    background-size: 26px 46px;
+    background-position: 0 0, 0 0, 13px 23px, 13px 23px, 0 0, 13px 23px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    height: 100vh;
 }
+
+.container {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    width: 90%;
+    max-width: 400px;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+
+}
+
+#add-btn {
+    background: #444CF7;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#add-btn:hover {
+    background: #332e7b;
+}
+
+#new-todo {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
 
 #todo-list{
     list-style-type: none;
-    padding: 0;
+}
+
+#todo-list li {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    transition: background 0.3s;
+}
+
+#todo-list li:hover {
+    background: #f9f9f9;
+}
+
+#todo-list li input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 #todo-list li.completed{
     text-decoration: line-through;
-    color: grey;
+    color: #888;
+}
+
+#todo-list li span {
+    flex-grow: 1;
+}
+
+#todo-list li i {
+    cursor: move;
+    color: #888;
+    margin-right: 10px;
 }
 
 .edit-input{
+    width: calc(100% - 20px);
     outline: none;
     border: none;
-}
-
-#todo-list i{
-    cursor: grab;
+    font-size: 18px;
 }

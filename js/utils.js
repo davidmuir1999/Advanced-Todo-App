@@ -11,10 +11,10 @@ export function addTodo(todoText) {
     const taskText = document.createElement('span');
     taskText.textContent = todoText;
 
-    todoItem.appendChild(icon);
-    todoItem.appendChild(taskText);
     todoItem.appendChild(checkbox);
-
+    todoItem.appendChild(taskText);
+    todoItem.appendChild(icon);
+    
     todoList.appendChild(todoItem);
 }
 
@@ -53,4 +53,23 @@ export function editTodoItem(taskText) {
             saveEdit();
         }
     });
+}
+
+export function initializeDragAndDrop(){
+    const todoList = document.getElementById('todo-list');
+
+    Sortable.create(todoList, {
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        handle: '.fa-grip-lines',
+        forceFallback: true,
+        fallbackTolerance: 3,
+        swapThreshold: 0.65,
+        touchStartThreshold: 3,
+    });
+}
+
+export function taskComplete(todoItem) {
+    const todoList = document.getElementById('todo-list');
+    todoList.appendChild(todoItem);
 }
